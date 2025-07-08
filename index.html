@@ -1,116 +1,158 @@
+<!-- Define que este é um documento HTML5 -->
 <!DOCTYPE html>
-<html lang="en">
+<!-- Define o idioma da página -->
+<html lang="pt-br">
 
-    <!-- Custom PreHead code is injected here -->
-    
+<head>
+    <!-- Compatibilidade com versões antigas do Internet Explorer -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <head>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name ="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <meta charset="utf-8"/>
+    <!-- Permite que o site funcione como um app em dispositivos Apple -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
 
-        <link rel="stylesheet" href="style.css">
+    <!-- Configura a página para ter largura igual à da tela do dispositivo e impedir zoom -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 
-        <!-- Builtin injector for disabling cache -->
-        <meta http-equiv="pragma" content="no-cache"/>
+    <!-- Estilo da barra de status em dispositivos Apple -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-        <!-- Set the title bar of the page -->
-        <title>Created with GameMaker</title>
+    <!-- Define a codificação de caracteres como UTF-8 -->
+    <meta charset="utf-8" />
 
-        <!-- Custom PreStyle code is injected here -->
-        
+    <!-- Impede cache para garantir que sempre carregue a versão mais recente -->
+    <meta http-equiv="pragma" content="no-cache" />
 
-        <!-- Set the background colour of the document -->
-        <style>
-            canvas {
-                image-rendering: optimizeSpeed;
-                -webkit-interpolation-mode: nearest-neighbor;
-                -ms-touch-action: none;
-                touch-action: none;
-                margin: 0px;
-                padding: 0px;
-                border: 0px;
-            }
-            :-webkit-full-screen #canvas {
-                width: 100%;
-                height: 100%;
-            }
-            :-webkit-full-screen {
-                width: 100%;
-                height: 100%;
-            }
+    <!-- Título da aba do navegador -->
+    <title>Created with GameMaker</title>
+
+
+    <!-- Importa estilos adicionais definidos em um arquivo externo -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Estilos aplicados ao canvas e ao container do jogo -->
+    <style>
+        /* Estilo do canvas onde o jogo é renderizado */
+        canvas {
+            /* Desempenho em vez de qualidade */
+            image-rendering: optimizeSpeed;
+            /* Melhora a renderização em alguns navegadores */
+            -webkit-interpolation-mode: nearest-neighbor;
+            /* Previne gestos padrão no IE */
+            -ms-touch-action: none;
+            /* Previne gestos padrão em dispositivos móveis */
+            touch-action: none;
             
-            /* Custom Runner Styles */
-            div.gm4html5_div_class {
-                margin: 0px;
-                padding: 0px;
-                border: 0px;
+            margin: 0px;
+            padding: 0px;
+            border: 0px;
+        }
+
+        /* Estilo aplicado quando estiver em tela cheia (em navegadores baseados em WebKit) */
+        :-webkit-full-screen #canvas {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Define o estilo da tela cheia para navegadores WebKit */
+        :-webkit-full-screen {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Estiliza a div principal onde o jogo fica embutido */
+        div.gm4html5_div_class {
+            margin: 0px;
+            padding: 0px;
+            border: 0px;
+
+            /* Necessário para posicionar elementos internos (como o botão) */
+            position: relative;
+            /* Largura da tela do jogo */
+            width: 640px;
+            /* Altura da tela do jogo */
+            height: 360px;
+            /* Fundo preto para o jogo */
+            background: black;
+            /* Evita que o splash do GameMaker saia da área da tela */
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Título principal da página -->
+    <h1>Game Test</h1>
+
+    <!-- Container do jogo -->
+    <div class="gm4html5_div_class" id="gm4html5_div_id">
+
+        <!-- Canvas onde o jogo será renderizado -->
+        <canvas id="canvas" width="640" height="360">
+            <!-- Mensagem de fallback se o navegador não suportar canvas -->
+            <p>Your browser doesn't support HTML5 canvas.</p>
+        </canvas>
+
+        <!-- Botão Play que aparece quando o jogo estiver pronto -->
+        <button id="startBtn" style="
+            position: absolute;         /* Permite posicionar sobre o canvas */
+            top: 50%;                   /* Centraliza verticalmente */
+            left: 50%;                  /* Centraliza horizontalmente */
+            transform: translate(-50%, -50%); /* Ajusta para centralizar o botão */
+            padding: 12px 24px;         /* Tamanho do botão */
+            font-size: 18px;            /* Tamanho da fonte do botão */
+            cursor: pointer;            /* Cursor de ponteiro ao passar o mouse */
+            z-index: 10;                /* Fica acima do canvas */
+            display: none;              /* Escondido até o jogo estar pronto */
+        ">Play</button>
+    </div>
+
+    <!-- Script para carregar o jogo de forma assíncrona -->
+    <script>
+        // Função que iniciará o jogo depois que ele carregar
+        let gameInitFunction = null;
+        // Referência ao botão "Play"
+        const btn = document.getElementById("startBtn");
+
+        // Cria dinamicamente a tag <script> para carregar o jogo exportado
+        const script = document.createElement("script");
+        // Caminho para o jogo exportado
+        script.src = "html5game/Flappy Passaros.js?cachebust=1981153741";
+
+        script.onload = () => {
+            // Aguarda um pequeno atraso para garantir que GameMaker_Init esteja disponível
+            setTimeout(() => {
+                if (typeof GameMaker_Init === 'function') {
+                    // Armazena a função de início do jogo
+                    gameInitFunction = GameMaker_Init;
+                    // Mostra o botão Play
+                    btn.style.display = "block";
+                }
+                else {
+                    console.error("GameMaker_Init não disponível após o carregamento.");
+                }
+            }, 200);
+        };
+
+        // Insere o script no corpo do HTML para começar o carregamento
+        document.body.appendChild(script);
+    </script>
+
+    <!-- Script para lidar com o clique no botão Play -->
+    <script>
+        // Acionado ao apertar no botão
+        btn.addEventListener("click", () => {
+            if (gameInitFunction) {
+                // Chama a função que inicia o jogo
+                gameInitFunction();
+                // Esconde o botão após iniciar
+                btn.style.display = "none";
             }
-            div.gm4html5_login {
-                padding: 20px;
-                position: absolute;
-                border: solid 2px #000000;
-                background-color: #404040;
-                color:#00ff00;
-                border-radius: 15px;
-                box-shadow: #101010 20px 20px 40px;
+            else {
+                // Fallback
+                alert("O jogo ainda não está pronto. Tente novamente.");
             }
-            div.gm4html5_cancel_button {
-                float: right;
-            }
-            div.gm4html5_login_button {
-                float: left;
-            }
-            div.gm4html5_login_header {
-                text-align: center;
-            }
-            /* END - Custom Runner Styles */
-            
-        </style>
+        });
+    </script>
+</body>
 
-        <!-- Custom PostStyle code is injected here -->
-        
-
-        <!-- Builtin injector for injecting flurry analytics code -->
-        
-    </head>
-
-    <!-- Custom PostHead code is injected here -->
-    
-
-    <!-- Custom PreBody code is injected here -->
-    
-
-    <body>
-        <h1>Game Test</h1>
-        <h2>Agora funcionando</h2>
-
-        <div class="gm4html5_div_class" id="gm4html5_div_id">
-            
-            <!-- Builtin injector for splash screen -->
-            
-
-            <!-- Create the canvas element the game draws to -->
-            <canvas id="canvas" width="640" height="360" >
-                <p>Your browser doesn't support HTML5 canvas.</p>
-            </canvas>
-        </div>
-
-        <!-- Run the game code -->
-        <script type="text/javascript" src="html5game/Flappy Passaros.js?cachebust=1981153741"></script>
-
-        <!-- Builtin injector for injecting runner path -->
-        
-
-        <script>window.onload = GameMaker_Init;</script>
-
-        <!-- Builtin injector for injecting google analytics code -->
-        
-
-    </body>
-
-    <!-- Custom PostBody code is injected here -->
-    
 </html>
