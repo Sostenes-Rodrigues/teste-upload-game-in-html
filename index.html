@@ -1,9 +1,11 @@
-<!-- Define que este é um documento HTML5 -->
 <!DOCTYPE html>
-<!-- Define o idioma da página -->
 <html lang="pt-br">
-
 <head>
+    <!-- Título da aba do navegador -->
+    <title>Mundo da Refração</title>
+
+    <meta charset="UTF-8">
+
     <!-- Compatibilidade com versões antigas do Internet Explorer -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
@@ -21,9 +23,6 @@
 
     <!-- Impede cache para garantir que sempre carregue a versão mais recente -->
     <meta http-equiv="pragma" content="no-cache" />
-
-    <!-- Título da aba do navegador -->
-    <title>Created with GameMaker</title>
 
 
     <!-- Importa estilos adicionais definidos em um arquivo externo -->
@@ -78,33 +77,96 @@
         }
     </style>
 </head>
-
 <body>
-    <!-- Título principal da página -->
-    <h1>Game Test</h1>
 
-    <!-- Container do jogo -->
-    <div class="gm4html5_div_class" id="gm4html5_div_id">
+    <header>
+        <h1>Mundo da Refração: Desvendando a Mágica da Luz</h1>
+        <p>Explore o fascinante fenômeno que faz a luz mudar de caminho!</p>
+    </header>
 
-        <!-- Canvas onde o jogo será renderizado -->
-        <canvas id="canvas" width="640" height="360">
-            <!-- Mensagem de fallback se o navegador não suportar canvas -->
-            <p>Your browser doesn't support HTML5 canvas.</p>
-        </canvas>
+    <main class="container">
+        <section id="introducao">
+            <h2>Bem-vindo ao Mundo da Refração!</h2>
+            <p>Prepare-se para descobrir como a luz se comporta de maneiras surpreendentes quando muda de meio. Já se perguntou por que um canudo em um copo de água parece entortar? Ou como as lentes dos nossos óculos nos ajudam a enxergar melhor? A resposta está na refração da luz!</p>
+            <img src="https://i.imgur.com/L7mzrPf.jpg" alt="Imagem ilustrativa de refração em um copo com água e canudo">
+        </section>
 
-        <!-- Botão Play que aparece quando o jogo estiver pronto -->
-        <button id="startBtn" style="
-            position: absolute;         /* Permite posicionar sobre o canvas */
-            top: 50%;                   /* Centraliza verticalmente */
-            left: 50%;                  /* Centraliza horizontalmente */
-            transform: translate(-50%, -50%); /* Ajusta para centralizar o botão */
-            padding: 12px 24px;         /* Tamanho do botão */
-            font-size: 18px;            /* Tamanho da fonte do botão */
-            cursor: pointer;            /* Cursor de ponteiro ao passar o mouse */
-            z-index: 10;                /* Fica acima do canvas */
-            display: none;              /* Escondido até o jogo estar pronto */
-        ">Play</button>
-    </div>
+        <section id="o-que-e">
+            <h2>O Que Acontece Quando a Luz Encontra um Novo Caminho?</h2>
+            <p>Imagine uma corredora mudando do asfalto para a grama: sua velocidade e direção podem mudar. Com a luz, é parecido! A <strong>refração</strong> ocorre quando a luz passa de um material para outro com uma densidade diferente. Essa mudança de densidade faz a luz mudar sua velocidade e, consequentemente, sua direção.</p>
+        </section>
+        
+        <section id="perguntas-1" class="perguntas">
+            <h2>Teste Rápido!</h2>
+            <p>Qual das seguintes opções melhor descreve a refração da luz?</p>
+            <ol type="a">
+                <li>A luz sendo refletida por uma superfície espelhada.</li>
+                <li>A mudança na direção da luz ao passar de um meio para outro.</li>
+                <li>A luz se dividindo em suas cores componentes.</li>
+            </ol>
+            <button onclick="checkAnswer1('b')">Verificar Resposta</button>
+            <p id="resposta-1" class="resposta"></p>
+        </section>
+
+        <section id="exemplos">
+            <h2>Refração em Ação no Seu Dia a Dia</h2>
+            <p>A refração não é apenas um conceito científico abstrato, você a encontra em diversos momentos:</p>
+            <div class="examples-grid">
+                <div class="example-item">
+                    <img src="https://i.imgur.com/J19l25a.jpg" alt="Lápis parcialmente submerso em água parecendo quebrado">
+                    <p><strong>O Lápis "Quebrado"</strong></p>
+                </div>
+                <div class="example-item">
+                    <img src="https://i.imgur.com/XdER516.jpg" alt="Miragem em uma estrada quente">
+                    <p><strong>Miragens na Estrada</strong></p>
+                </div>
+                <div class="example-item">
+                    <img src="https://i.imgur.com/84tCWR0.jpg" alt="Um belo arco-íris no céu">
+                    <p><strong>O Arco-Íris</strong></p>
+                </div>
+                <div class="example-item">
+                    <img src="https://i.imgur.com/k9p4WjI.jpg" alt="Uma pessoa usando óculos">
+                    <p><strong>Óculos e Lentes</strong></p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="jogo">
+            <h2>🚀 Chegou a Hora! Jogue Agora: Mestre da Refração</h2>
+            <p>O jogo que você criou está pronto para ser testado! Carregue sua criação abaixo e mostre que você domina os ângulos da luz.</p>
+        
+            <div id="game-container">
+                <!-- Container do jogo -->
+                <div class="gm4html5_div_class" id="gm4html5_div_id">
+
+                    <!-- Canvas onde o jogo será renderizado -->
+                    <canvas id="canvas" width="640" height="360">
+                        <!-- Mensagem de fallback se o navegador não suportar canvas -->
+                        <p>Your browser doesn't support HTML5 canvas.</p>
+                    </canvas>
+
+                    <!-- Botão Play que aparece quando o jogo estiver pronto -->
+                    <button id="startBtn" style="
+                        position: absolute;         /* Permite posicionar sobre o canvas */
+                        top: 50%;                   /* Centraliza verticalmente */
+                        left: 50%;                  /* Centraliza horizontalmente */
+                        transform: translate(-50%, -50%); /* Ajusta para centralizar o botão */
+                        padding: 12px 24px;         /* Tamanho do botão */
+                        font-size: 18px;            /* Tamanho da fonte do botão */
+                        cursor: pointer;            /* Cursor de ponteiro ao passar o mouse */
+                        z-index: 10;                /* Fica acima do canvas */
+                        display: none;              /* Escondido até o jogo estar pronto */
+                    ">Play</button>
+                </div>
+
+                
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Continue explorando a ciência da luz - um mundo de descobertas fascinantes!</p>
+    </footer>
 
     <!-- Script para carregar o jogo de forma assíncrona -->
     <script>
@@ -116,7 +178,7 @@
         // Cria dinamicamente a tag <script> para carregar o jogo exportado
         const script = document.createElement("script");
         // Caminho para o jogo exportado
-        script.src = "html5game/Flappy Passaros.js?cachebust=1981153741";
+        script.src = "html5game/game reflection.js?cachebust=190845486";
 
         script.onload = () => {
             // Aguarda um pequeno atraso para garantir que GameMaker_Init esteja disponível
@@ -154,5 +216,4 @@
         });
     </script>
 </body>
-
 </html>
