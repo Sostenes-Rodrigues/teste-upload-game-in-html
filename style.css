@@ -145,7 +145,7 @@ img {
     color: #c62828;
 }
 
-/* === CÓDIGO CORRIGIDO PARA CENTRALIZAR O JOGO === */
+/* Código para centralizar o jogo */
 #game-container {
     padding: 20px;
     border: 2px solid #007BFF;
