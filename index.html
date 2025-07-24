@@ -20,12 +20,12 @@
             <p>Quando a luz atinge uma superfície, ela "bate e volta". Mas espere aí, se tudo reflete luz, por que não podemos nos ver em uma parede como nos vemos em um espelho? É porque existem dois tipos principais de reflexão:</p>
 
             <div class="comparison-grid">
-                <div class="reflection-card">
+                <div class="comparison-item">
                     <img src="reflexao-especular.jpg" alt="Diagrama da Reflexão Especular">
                     <h3>Reflexão Especular</h3>
-                    <p>Ocorre em superfícies super lisas, como espelhos. Os raios de luz chegam organizados e saem organizados na mesma direção, formando uma imagem clara.</p>
+                    <p>Ocorre em superfícies super lisas. Os raios de luz chegam organizados e saem organizados na mesma direção, formando uma imagem clara.</p>
                 </div>
-                <div class="reflection-card">
+                <div class="comparison-item">
                     <img src="reflexao-difusa.jpg" alt="Diagrama da Reflexão Difusa">
                     <h3>Reflexão Difusa</h3>
                     <p>Acontece em superfícies irregulares. A luz também bate e volta, mas é espalhada em todas as direções. É por isso que vemos o objeto, mas não nosso reflexo nele.</p>
@@ -35,40 +35,40 @@
 
         <section id="o-que-e-refracao">
             <h2>Mudando de Caminho: O Que É a Refração?</h2>
-            <p>Agora, vamos falar sobre refração. Imagine a luz como um carro mudando do asfalto para a areia: sua velocidade e direção podem mudar. A <strong>refração</strong> acontece quando a luz passa de um meio para outro com uma densidade diferente, como do ar para a água ou do vidro. Essa mudança de velocidade causa um desvio na sua trajetória.</p>
-             <div class="centered-image">
+            <p>A <strong>refração</strong> acontece quando a luz passa de um meio para outro (do ar para a água, por exemplo). Essa mudança de meio faz a luz mudar sua velocidade e, consequentemente, sua direção, o que causa ilusões de ótica como um lápis parecer quebrado em um copo d'água.</p>
+            <div class="centered-image">
                 <img src="Periscópio-do-submarino-Tridente-7.jpg" alt="Imagem de um periscópio mostrando refração da luz">
-                <p class="caption">A luz muda de direção ao passar pelas lentes do periscópio devido à refração.</p>
             </div>
         </section>
 
         <section class="perguntas" id="perguntas-1">
             <h2>Quiz Rápido! (1/2)</h2>
-            <p class="quiz-question">Qual fenômeno explica por que vemos nosso reflexo nítido em um lago de águas calmas?</p>
-            <div class="quiz-options">
-                <div class="quiz-option" onclick="checkAnswer(1, 'a', this)">Refração</div>
-                <div class="quiz-option" onclick="checkAnswer(1, 'b', this)">Reflexão Especular</div>
-                <div class="quiz-option" onclick="checkAnswer(1, 'c', this)">Reflexão Difusa</div>
-            </div>
+            <p>Qual fenômeno explica por que vemos nosso reflexo nítido em um espelho?</p>
+            <ol type="a">
+                <li>Refração</li>
+                <li>Reflexão Especular</li>
+                <li>Reflexão Difusa</li>
+            </ol>
+            <button onclick="checkAnswer1(prompt('Digite a letra da sua resposta (a, b ou c):'))">Verificar Resposta</button>
             <p id="resposta-1" class="resposta"></p>
         </section>
 
         <section class="perguntas" id="perguntas-2">
             <h2>Quiz Rápido! (2/2)</h2>
-            <p class="quiz-question">Você coloca um canudo em um copo com água e ele parece "quebrado". Qual fenômeno causa essa ilusão de ótica?</p>
-            <div class="quiz-options">
-                <div class="quiz-option" onclick="checkAnswer(2, 'a', this)">Refração</div>
-                <div class="quiz-option" onclick="checkAnswer(2, 'b', this)">Absorção da Luz</div>
-                <div class="quiz-option" onclick="checkAnswer(2, 'c', this)">Reflexão Especular</div>
-            </div>
+            <p>Um canudo dentro de um copo com água parece "quebrado". Qual fenômeno causa essa ilusão?</p>
+            <ol type="a">
+                <li>Refração</li>
+                <li>Reflexão Especular</li>
+                <li>Absorção da Luz</li>
+            </ol>
+            <button onclick="checkAnswer2(prompt('Digite a letra da sua resposta (a, b ou c):'))">Verificar Resposta</button>
             <p id="resposta-2" class="resposta"></p>
         </section>
 
 
         <section id="jogo">
             <h2>🚀 Chegou a Hora! Jogue Agora: Mestre da Refração</h2>
-            <p>Seu jogo está pronto para ser testado! Carregue sua criação abaixo e mostre que você domina os ângulos da luz.</p>
-
+            <p>Seu jogo está pronto para ser testado!</p>
             <div id="game-container">
                 <iframe src="./jogo_reflexao/index.html" width="800" height="600" style="border:none; border-radius: 8px;"></iframe>
             </div>
