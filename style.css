@@ -41,7 +41,7 @@ section {
     border-bottom: 1px solid #eee;
 }
 
-section:last-child {
+main > section:last-child {
     border-bottom: none;
 }
 
@@ -145,25 +145,32 @@ img {
     color: #c62828;
 }
 
-/* Centralização do container do jogo */
+/* === ESTILOS PARA A SEÇÃO DO JOGO (AGORA FORA DO CONTAINER) === */
+#jogo {
+    padding: 40px 20px; /* Mais espaço vertical */
+    text-align: center; /* Centraliza o título e parágrafo */
+}
+
+.container-jogo h2, .container-jogo p {
+    max-width: 900px; /* Limita a largura do texto para não ficar estranho */
+    margin-left: auto;
+    margin-right: auto;
+}
+
 #game-container {
     padding: 20px;
     border: 2px solid #007BFF;
     border-radius: 12px;
     margin-top: 20px;
     background-color: #f0f8ff;
-    width: 100%;
-    height: auto;
-    box-sizing: border-box;
+    /* O container em si não precisa mais de alinhamento, pois ele é full-width */
 }
 
-/* === CORREÇÃO DEFINITIVA COM !important === */
-/* Força a div do jogo a ter o tamanho correto e a se centralizar,
-   ignorando qualquer alteração feita pelo script do GameMaker. */
+/* Centralização da DIV do jogo, que agora vai funcionar! */
 .gm4html5_div_class {
-    width: 1536px !important;
+    width: 1536px !important; /* !important ainda é uma boa garantia */
     height: 864px !important;
-    margin: 0 auto !important; /* Centraliza horizontalmente */
+    margin: 0 auto; /* Centraliza horizontalmente */
     background: black;
     overflow: hidden;
     position: relative;
