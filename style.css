@@ -86,7 +86,7 @@ img {
 
 /* Estilos para o Quiz */
 #desafio-reflexao {
-    background-color: #e0f2f1; /* Um tom de verde-água claro */
+    background-color: #e0f2f1;
     padding: 25px;
     border-radius: 8px;
     margin: 20px 0;
@@ -94,7 +94,7 @@ img {
 }
 
 #desafio-reflexao h2 {
-    color: #00796b; /* Verde escuro */
+    color: #00796b;
 }
 
 .pergunta-item {
@@ -136,16 +136,16 @@ img {
 }
 
 #resultado-quiz.correto {
-    background-color: #dcedc8; /* Verde claro */
+    background-color: #dcedc8;
     color: #33691e;
 }
 
 #resultado-quiz.incorreto {
-    background-color: #ffcdd2; /* Vermelho claro */
+    background-color: #ffcdd2;
     color: #c62828;
 }
 
-/* Código para centralizar o jogo */
+/* === NOVA TENTATIVA DE CORREÇÃO === */
 #game-container {
     padding: 20px;
     border: 2px solid #007BFF;
@@ -153,11 +153,23 @@ img {
     margin-top: 20px;
     background-color: #f0f8ff;
     
-    /* Adicionado para centralizar o conteúdo */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    /* Vamos garantir que o container ocupe a largura disponível */
+    width: 100%;
+    /* A altura se ajustará ao conteúdo */
+    height: auto;
+    box-sizing: border-box; /* Garante que padding e borda não aumentem o tamanho total */
 }
+
+/* E vamos centralizar a div do jogo usando margem automática */
+.gm4html5_div_class {
+    width: 1536px;
+    height: 864px;
+    margin: 0 auto; /* A mágica da centralização para elementos de bloco */
+    background: black;
+    overflow: hidden;
+    position: relative;
+}
+
 
 footer {
     text-align: center;
