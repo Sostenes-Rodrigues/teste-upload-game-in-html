@@ -9,11 +9,13 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta http-equiv="pragma" content="no-cache" />
     <link rel="stylesheet" href="style.css">
+    
     <style>
         canvas { image-rendering: optimizeSpeed; -webkit-interpolation-mode: nearest-neighbor; -ms-touch-action: none; touch-action: none; margin: 0px; padding: 0px; border: 0px; }
         :-webkit-full-screen #canvas { width: 100%; height: 100%; }
         :-webkit-full-screen { width: 100%; height: 100%; }
-        div.gm4html5_div_class { margin: 0px; padding: 0px; border: 0px; position: relative; width: 1280px; height: 720px; background: black; overflow: hidden; }
+        /* A LINHA ABAIXO FOI CORRIGIDA PARA O TAMANHO CERTO DO SEU JOGO */
+        div.gm4html5_div_class { margin: 0px; padding: 0px; border: 0px; position: relative; width: 1536px; height: 864px; background: black; overflow: hidden; }
     </style>
 </head>
 <body>
@@ -124,7 +126,7 @@
             
             <div id="game-container">
                 <div class="gm4html5_div_class" id="gm4html5_div_id">
-                    <canvas id="canvas" width="1280" height="720">
+                    <canvas id="canvas" width="1536" height="864">
                         <p>Seu navegador não suporta HTML5 canvas.</p>
                     </canvas>
                     <button id="startBtn" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 12px 24px; font-size: 18px; cursor: pointer; z-index: 10; display: none;">Play</button>
