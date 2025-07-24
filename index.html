@@ -3,82 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mundo da Refração e Reflexão</title>
+    <title>Projeto sobre Reflexão da Luz</title>
     <link rel="stylesheet" href="style.css">
+    
+    <style>
+        canvas { image-rendering: optimizeSpeed; -webkit-interpolation-mode: nearest-neighbor; -ms-touch-action: none; touch-action: none; margin: 0px; padding: 0px; border: 0px; }
+    </style>
 </head>
 <body>
 
     <header>
-        <h1>Mundo da Refração e Reflexão da Luz</h1>
-        <p>Explore como a luz se comporta ao encontrar o mundo ao nosso redor.</p>
+        <div class="header-content">
+            <h1>Mundo da Reflexão</h1>
+            <p>Um site para explicar o que é a reflexão da luz e como ela funciona.</p>
+        </div>
     </header>
 
     <main class="container">
-
-        <section id="reflexao">
-            <h2>Os Dois Tipos de Reflexão</h2>
-            <p>Quando a luz atinge uma superfície, ela "bate e volta". Mas espere aí, se tudo reflete luz, por que não podemos nos ver em uma parede como nos vemos em um espelho? É porque existem dois tipos principais de reflexão:</p>
-
-            <div class="comparison-grid">
-                <div class="comparison-item">
-                    <img src="reflexao-especular.jpg" alt="Diagrama da Reflexão Especular">
-                    <h3>Reflexão Especular</h3>
-                    <p>Ocorre em superfícies super lisas. Os raios de luz chegam organizados e saem organizados na mesma direção, formando uma imagem clara.</p>
-                </div>
-                <div class="comparison-item">
-                    <img src="reflexao-difusa.jpg" alt="Diagrama da Reflexão Difusa">
-                    <h3>Reflexão Difusa</h3>
-                    <p>Acontece em superfícies irregulares. A luz também bate e volta, mas é espalhada em todas as direções. É por isso que vemos o objeto, mas não nosso reflexo nele.</p>
-                </div>
-            </div>
+        <section id="introducao">
+            <h2>O que é Reflexão?</h2>
+            <p>A reflexão é um fenômeno que acontece quando a luz atinge uma superfície e volta (é refletida), em vez de ser absorvida ou atravessá-la. É por causa da reflexão que conseguimos ver objetos que não têm luz própria, como a lua, uma cadeira ou nós mesmos em um espelho.</p>
+            <img src="https://i.imgur.com/k6KAsyH.jpg" alt="Reflexo de montanhas em um lago perfeitamente calmo">
         </section>
-
-        <section id="o-que-e-refracao">
-            <h2>Mudando de Caminho: O Que É a Refração?</h2>
-            <p>A <strong>refração</strong> acontece quando a luz passa de um meio para outro (do ar para a água, por exemplo). Essa mudança de meio faz a luz mudar sua velocidade e, consequentemente, sua direção, o que causa ilusões de ótica como um lápis parecer quebrado em um copo d'água.</p>
-            <div class="centered-image">
-                <img src="Periscópio-do-submarino-Tridente-7.jpg" alt="Imagem de um periscópio mostrando refração da luz">
-            </div>
-        </section>
-
-        <section class="perguntas" id="perguntas-1">
-            <h2>Quiz Rápido! (1/2)</h2>
-            <p>Qual fenômeno explica por que vemos nosso reflexo nítido em um espelho?</p>
-            <ol type="a">
-                <li>Refração</li>
-                <li>Reflexão Especular</li>
-                <li>Reflexão Difusa</li>
-            </ol>
-            <button onclick="checkAnswer1(prompt('Digite a letra da sua resposta (a, b ou c):'))">Verificar Resposta</button>
-            <p id="resposta-1" class="resposta"></p>
-        </section>
-
-        <section class="perguntas" id="perguntas-2">
-            <h2>Quiz Rápido! (2/2)</h2>
-            <p>Um canudo dentro de um copo com água parece "quebrado". Qual fenômeno causa essa ilusão?</p>
-            <ol type="a">
-                <li>Refração</li>
-                <li>Reflexão Especular</li>
-                <li>Absorção da Luz</li>
-            </ol>
-            <button onclick="checkAnswer2(prompt('Digite a letra da sua resposta (a, b ou c):'))">Verificar Resposta</button>
-            <p id="resposta-2" class="resposta"></p>
-        </section>
-
-
-        <section id="jogo">
-            <h2>🚀 Chegou a Hora! Jogue Agora: Mestre da Refração</h2>
-            <p>Seu jogo está pronto para ser testado!</p>
-            <div id="game-container">
-                <iframe src="./jogo_reflexao/index.html" width="800" height="600" style="border:none; border-radius: 8px;"></iframe>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>Continue explorando o fascinante mundo da luz!</p>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
-</html>
+        
+        <section id="exemplos">
+            <h2>Tipos de Reflexão</h2>
+            <p>Existem dois tipos principais de reflexão, que dependem da superfície onde a luz bate.</p
