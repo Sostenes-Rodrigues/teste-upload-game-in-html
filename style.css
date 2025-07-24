@@ -72,6 +72,9 @@ img {
     border-radius: 8px;
     text-align: center;
     box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .example-item img {
@@ -81,7 +84,7 @@ img {
     object-fit: cover;
 }
 
-/* === NOVOS ESTILOS PARA O QUIZ === */
+/* Estilos para o Quiz */
 #desafio-reflexao {
     background-color: #e0f2f1; /* Um tom de verde-água claro */
     padding: 25px;
@@ -141,16 +144,19 @@ img {
     background-color: #ffcdd2; /* Vermelho claro */
     color: #c62828;
 }
-/* === FIM DOS NOVOS ESTILOS === */
 
-
+/* === CÓDIGO CORRIGIDO PARA CENTRALIZAR O JOGO === */
 #game-container {
-    text-align: center;
     padding: 20px;
     border: 2px solid #007BFF;
     border-radius: 12px;
     margin-top: 20px;
     background-color: #f0f8ff;
+    
+    /* Adicionado para centralizar o conteúdo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 footer {
