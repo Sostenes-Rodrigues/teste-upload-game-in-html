@@ -1,165 +1,95 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <!-- Título da aba do navegador -->
-    <title>Mundo da Refração</title>
-
+    <title>Mundo da Reflexão</title>
     <meta charset="UTF-8">
-
-    <!-- Compatibilidade com versões antigas do Internet Explorer -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-
-    <!-- Permite que o site funcione como um app em dispositivos Apple -->
     <meta name="apple-mobile-web-app-capable" content="yes" />
-
-    <!-- Configura a página para ter largura igual à da tela do dispositivo e impedir zoom -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-
-    <!-- Estilo da barra de status em dispositivos Apple -->
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-
-    <!-- Define a codificação de caracteres como UTF-8 -->
-    <meta charset="utf-8" />
-
-    <!-- Impede cache para garantir que sempre carregue a versão mais recente -->
     <meta http-equiv="pragma" content="no-cache" />
-
-
-    <!-- Importa estilos adicionais definidos em um arquivo externo -->
     <link rel="stylesheet" href="style.css">
-
-    <!-- Estilos aplicados ao canvas e ao container do jogo -->
     <style>
-        /* Estilo do canvas onde o jogo é renderizado */
-        canvas {
-            /* Desempenho em vez de qualidade */
-            image-rendering: optimizeSpeed;
-            /* Melhora a renderização em alguns navegadores */
-            -webkit-interpolation-mode: nearest-neighbor;
-            /* Previne gestos padrão no IE */
-            -ms-touch-action: none;
-            /* Previne gestos padrão em dispositivos móveis */
-            touch-action: none;
-            
-            margin: 0px;
-            padding: 0px;
-            border: 0px;
-        }
-
-        /* Estilo aplicado quando estiver em tela cheia (em navegadores baseados em WebKit) */
-        :-webkit-full-screen #canvas {
-            width: 100%;
-            height: 100%;
-        }
-
-        /* Define o estilo da tela cheia para navegadores WebKit */
-        :-webkit-full-screen {
-            width: 100%;
-            height: 100%;
-        }
-
-        /* Estiliza a div principal onde o jogo fica embutido */
-        div.gm4html5_div_class {
-            margin: 0px;
-            padding: 0px;
-            border: 0px;
-
-            /* Necessário para posicionar elementos internos (como o botão) */
-            position: relative;
-            /* Largura da tela do jogo */
-            width: 1280px;
-            /* Altura da tela do jogo */
-            height: 720px;
-            /* Fundo preto para o jogo */
-            background: black;
-            /* Evita que o splash do GameMaker saia da área da tela */
-            overflow: hidden;
-        }
+        canvas { image-rendering: optimizeSpeed; -webkit-interpolation-mode: nearest-neighbor; -ms-touch-action: none; touch-action: none; margin: 0px; padding: 0px; border: 0px; }
+        :-webkit-full-screen #canvas { width: 100%; height: 100%; }
+        :-webkit-full-screen { width: 100%; height: 100%; }
+        div.gm4html5_div_class { margin: 0px; padding: 0px; border: 0px; position: relative; width: 1280px; height: 720px; background: black; overflow: hidden; }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Mundo da Refração: Desvendando a Mágica da Luz</h1>
-        <p>Explore o fascinante fenômeno que faz a luz mudar de caminho!</p>
+        <h1>Mundo da Reflexão: O Espetáculo da Luz que Bate e Volta</h1>
+        <p>Descubra o segredo por trás dos espelhos e de tudo que conseguimos enxergar!</p>
     </header>
 
     <main class="container">
         <section id="introducao">
-            <h2>Bem-vindo ao Mundo da Refração!</h2>
-            <p>Prepare-se para descobrir como a luz se comporta de maneiras surpreendentes quando muda de meio. Já se perguntou por que um canudo em um copo de água parece entortar? Ou como as lentes dos nossos óculos nos ajudam a enxergar melhor? A resposta está na refração da luz!</p>
-            <img src="https://i.imgur.com/L7mzrPf.jpg" alt="Imagem ilustrativa de refração em um copo com água e canudo">
+            <h2>Bem-vindo ao Mundo da Reflexão!</h2>
+            <p>Sabe quando você se olha no espelho pela manhã? Ou quando vê seu reflexo na superfície de um lago calmo? Esse "show de imagens" acontece graças a um fenômeno incrível chamado **reflexão**. Nada mais é do que a luz "ricocheteando" em uma superfície. Vamos mergulhar nesse conceito e descobrir que ele é a razão pela qual vemos o mundo ao nosso redor!</p>
+            <img src="https://i.imgur.com/k6KAsyH.jpg" alt="Reflexo de montanhas em um lago perfeitamente calmo">
         </section>
 
         <section id="o-que-e">
-            <h2>O Que Acontece Quando a Luz Encontra um Novo Caminho?</h2>
-            <p>Imagine uma corredora mudando do asfalto para a grama: sua velocidade e direção podem mudar. Com a luz, é parecido! A <strong>refração</strong> ocorre quando a luz passa de um material para outro com uma densidade diferente. Essa mudança de densidade faz a luz mudar sua velocidade e, consequentemente, sua direção.</p>
+            <h2>Afinal, o que é a Reflexão?</h2>
+            <p>Imagine que você joga uma bola de bilhar contra a borda da mesa. Ela bate e muda de direção, certo? A luz faz algo muito parecido. A **reflexão** acontece quando um raio de luz atinge uma superfície (como um espelho, a água ou até mesmo uma parede) e é desviado de volta, sem atravessá-la.</p>
+            <p>A "regra de ouro" da reflexão é simples: o ângulo com que a luz chega é o mesmo ângulo com que ela sai. É por isso que os reflexos em superfícies lisinhas, como um espelho, são tão perfeitos e nítidos!</p>
         </section>
         
-        <section id="perguntas-1" class="perguntas">
-            <h2>Teste Rápido!</h2>
-            <p>Qual das seguintes opções melhor descreve a refração da luz?</p>
-            <ol type="a">
-                <li>A luz sendo refletida por uma superfície espelhada.</li>
-                <li>A mudança na direção da luz ao passar de um meio para outro.</li>
-                <li>A luz se dividindo em suas cores componentes.</li>
-            </ol>
-            <button onclick="checkAnswer1('b')">Verificar Resposta</button>
-            <p id="resposta-1" class="resposta"></p>
-        </section>
-
         <section id="exemplos">
-            <h2>Refração em Ação no Seu Dia a Dia</h2>
-            <p>A refração não é apenas um conceito científico abstrato, você a encontra em diversos momentos:</p>
+            <h2>Dois Tipos de Show: Reflexão Espelular vs. Difusa</h2>
+            <p>Mas espere aí, se tudo reflete luz, por que não podemos nos ver em uma parede de tijolos como nos vemos em um espelho? É porque existem dois tipos principais de reflexão:</p>
             <div class="examples-grid">
                 <div class="example-item">
-                    <img src="https://i.imgur.com/J19l25a.jpg" alt="Lápis parcialmente submerso em água parecendo quebrado">
-                    <p><strong>O Lápis "Quebrado"</strong></p>
+                    <img src="https://i.imgur.com/hGGrA4A.jpg" alt="Imagem nítida refletida em um espelho">
+                    <p><strong>Reflexão Espelular</strong></p>
+                    <p>Ocorre em superfícies super lisas, como espelhos e metais polidos. Os raios de luz chegam organizados e saem organizados na mesma direção, formando uma imagem clara.</p>
                 </div>
                 <div class="example-item">
-                    <img src="https://i.imgur.com/XdER516.jpg" alt="Miragem em uma estrada quente">
-                    <p><strong>Miragens na Estrada</strong></p>
-                </div>
-                <div class="example-item">
-                    <img src="https://i.imgur.com/84tCWR0.jpg" alt="Um belo arco-íris no céu">
-                    <p><strong>O Arco-Íris</strong></p>
-                </div>
-                <div class="example-item">
-                    <img src="https://i.imgur.com/k9p4WjI.jpg" alt="Uma pessoa usando óculos">
-                    <p><strong>Óculos e Lentes</strong></p>
+                    <img src="https://i.imgur.com/2PzQk1J.jpg" alt="Parede de tijolos vermelhos sem reflexo nítido">
+                    <p><strong>Reflexão Difusa</strong></p>
+                    <p>Acontece em superfícies irregulares, como paredes, madeira ou asfalto. A luz também bate e volta, mas como a superfície é cheia de "lombadas", os raios são espalhados em todas as direções. É por isso que vemos o objeto, mas não nosso reflexo nele.</p>
                 </div>
             </div>
         </section>
         
-        <section id="jogo">
-            <h2>🚀 Chegou a Hora! Jogue Agora: Mestre da Refração</h2>
-            <p>O jogO que você criou está pronto para ser testado! Carregue sua criação abaixo e mostre que você domina os ângulos da luz.</p>
-        
-            <div id="game-container">
-                <!-- Container do jogo -->
-                <div class="gm4html5_div_class" id="gm4html5_div_id">
+        <section id="desafio-reflexao">
+            <h2>Teste Seus Conhecimentos!</h2>
+            <p>Agora que você já está craque no assunto, vamos ver se a matéria "refletiu" bem na sua mente?</p>
 
-                    <!-- Canvas onde o jogo será renderizado -->
-                    <canvas id="canvas" width="1536" height="864">
-                        <!-- Mensagem de fallback se o navegador não suportar canvas -->
-                        <p>Your browser doesn't support HTML5 canvas.</p>
-                    </canvas>
-
-                    <!-- Botão Play que aparece quando o jogo estiver pronto -->
-                    <button id="startBtn" style="
-                        position: absolute;         /* Permite posicionar sobre o canvas */
-                        top: 50%;                   /* Centraliza verticalmente */
-                        left: 50%;                  /* Centraliza horizontalmente */
-                        transform: translate(-50%, -50%); /* Ajusta para centralizar o botão */
-                        padding: 12px 24px;         /* Tamanho do botão */
-                        font-size: 18px;            /* Tamanho da fonte do botão */
-                        cursor: pointer;            /* Cursor de ponteiro ao passar o mouse */
-                        z-index: 10;                /* Fica acima do canvas */
-                        display: none;              /* Escondido até o jogo estar pronto */
-                    ">Play</button>
+            <div class="pergunta-item">
+                <p>1. Qual situação é o melhor exemplo de reflexão espelular?</p>
+                <div class="opcoes" id="q1">
+                    <label><input type="radio" name="q1" value="a"> Olhar para uma folha de papel.</label>
+                    <label><input type="radio" name="q1" value="b"> Ver seu reflexo na tela de um celular desligado.</label>
+                    <label><input type="radio" name="q1" value="c"> Enxergar a cor de uma camiseta de algodão.</label>
                 </div>
+            </div>
 
-                
+            <div class="pergunta-item">
+                <p>2. Por que conseguimos ver uma parede que não é um espelho?</p>
+                <div class="opcoes" id="q2">
+                    <label><input type="radio" name="q2" value="a"> Porque a parede absorve toda a luz.</label>
+                    <label><input type="radio" name="q2" value="b"> Porque a parede emite sua própria luz.</label>
+                    <label><input type="radio" name="q2" value="c"> Por causa da reflexão difusa, que espalha a luz em todas as direções.</label>
+                </div>
+            </div>
+            
+            <button onclick="verificarRespostas()">Verificar Respostas</button>
+            <div id="resultado-quiz" style="display: none;"></div>
+        </section>
+
+        <section id="jogo">
+            <h2>🚀 Chegou a Hora! Jogue Agora: Mestre da Reflexão</h2>
+            <p>Use tudo que você aprendeu sobre os ângulos da luz para vencer neste desafio. Mostre que você domina a arte da reflexão!</p>
+            
+            <div id="game-container">
+                <div class="gm4html5_div_class" id="gm4html5_div_id">
+                    <canvas id="canvas" width="1536" height="864">
+                        <p>Seu navegador não suporta HTML5 canvas.</p>
+                    </canvas>
+                    <button id="startBtn" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 12px 24px; font-size: 18px; cursor: pointer; z-index: 10; display: none;">Play</button>
+                </div>
             </div>
         </section>
     </main>
@@ -168,52 +98,65 @@
         <p>Continue explorando a ciência da luz - um mundo de descobertas fascinantes!</p>
     </footer>
 
-    <!-- Script para carregar o jogo de forma assíncrona -->
     <script>
-        // Função que iniciará o jogo depois que ele carregar
+        function verificarRespostas() {
+            const respostasCorretas = {
+                q1: 'b',
+                q2: 'c'
+            };
+            
+            let acertos = 0;
+            const totalPerguntas = Object.keys(respostasCorretas).length;
+            
+            const q1_selecionada = document.querySelector('input[name="q1"]:checked');
+            const q2_selecionada = document.querySelector('input[name="q2"]:checked');
+            
+            if (q1_selecionada && q1_selecionada.value === respostasCorretas.q1) {
+                acertos++;
+            }
+            if (q2_selecionada && q2_selecionada.value === respostasCorretas.q2) {
+                acertos++;
+            }
+            
+            const resultadoDiv = document.getElementById('resultado-quiz');
+            resultadoDiv.style.display = 'block';
+            
+            if (acertos === totalPerguntas) {
+                resultadoDiv.textContent = `Parabéns! Você acertou todas as ${totalPerguntas} perguntas! Mandou bem!`;
+                resultadoDiv.className = 'correto';
+            } else {
+                resultadoDiv.textContent = `Quase lá! Você acertou ${acertos} de ${totalPerguntas}. Tente revisar o conteúdo e responder novamente.`;
+                resultadoDiv.className = 'incorreto';
+            }
+        }
+    </script>
+    
+    <script>
         let gameInitFunction = null;
-        // Referência ao botão "Play"
         const btn = document.getElementById("startBtn");
-
-        // Cria dinamicamente a tag <script> para carregar o jogo exportado
         const script = document.createElement("script");
-        // Caminho para o jogo exportado
-        script.src = "html5game/game reflection.js?cachebust=190845486";
-
+        script.src = "html5game/game reflection.js?cachebust=190845486"; // Verifique se o nome do arquivo JS está correto
         script.onload = () => {
-            // Aguarda um pequeno atraso para garantir que GameMaker_Init esteja disponível
             setTimeout(() => {
                 if (typeof GameMaker_Init === 'function') {
-                    // Armazena a função de início do jogo
                     gameInitFunction = GameMaker_Init;
-                    // Mostra o botão Play
                     btn.style.display = "block";
-                }
-                else {
+                } else {
                     console.error("GameMaker_Init não disponível após o carregamento.");
                 }
             }, 200);
         };
-
-        // Insere o script no corpo do HTML para começar o carregamento
         document.body.appendChild(script);
-    </script>
 
-    <!-- Script para lidar com o clique no botão Play -->
-    <script>
-        // Acionado ao apertar no botão
         btn.addEventListener("click", () => {
             if (gameInitFunction) {
-                // Chama a função que inicia o jogo
                 gameInitFunction();
-                // Esconde o botão após iniciar
                 btn.style.display = "none";
-            }
-            else {
-                // Fallback
+            } else {
                 alert("O jogo ainda não está pronto. Tente novamente.");
             }
         });
     </script>
+
 </body>
 </html>
