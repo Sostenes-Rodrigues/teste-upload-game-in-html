@@ -1,42 +1,36 @@
-/* Estilos Gerais */
+/* Estilos Gerais (versão original) */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.7;
+    line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #f0f4f8; /* Tom de fundo mais suave */
+    background-color: #f4f4f4;
     color: #333;
 }
 
 .container {
     max-width: 900px;
-    margin: 30px auto;
-    padding: 10px 30px;
+    margin: 20px auto;
+    padding: 0 20px;
     background-color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
 header {
-    background: linear-gradient(45deg, #007BFF, #0056b3);
+    background-color: #007BFF;
     color: #fff;
-    padding: 2rem 1rem;
+    padding: 1rem 0;
     text-align: center;
 }
 
 header h1 {
     margin: 0;
-    font-size: 2.8rem;
-}
-
-header p {
-    font-size: 1.1rem;
-    opacity: 0.9;
 }
 
 section {
-    padding: 30px 0;
-    border-bottom: 1px solid #e9ecef;
+    padding: 20px 0;
+    border-bottom: 1px solid #ddd;
 }
 
 section:last-child {
@@ -45,114 +39,76 @@ section:last-child {
 
 h2 {
     color: #0056b3;
-    margin-bottom: 1rem;
+}
+
+.centered-image {
     text-align: center;
 }
 
-h3 {
-    color: #333;
-    text-align: center;
-    margin-top: 0.5rem;
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 15px auto;
+    border-radius: 5px;
 }
 
-/* --- ESTILO DA COMPARAÇÃO LADO A LADO --- */
+/* --- ESTILO PARA O LAYOUT LADO A LADO --- */
 .comparison-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Cria duas colunas de tamanho igual */
+    grid-template-columns: 1fr 1fr; /* Cria duas colunas */
     gap: 25px; /* Espaço entre as colunas */
     margin-top: 20px;
 }
 
-.reflection-card {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 15px;
-    text-align: center;
-    background-color: #f9f9f9;
+.comparison-item {
+    text-align: center; /* Centraliza o conteúdo de cada coluna */
 }
 
-.reflection-card img {
-    max-width: 100%;
-    border-radius: 4px;
+.comparison-item img {
     border: 1px solid #ccc;
 }
 
-/* --- ESTILOS MELHORADOS PARA O QUIZ --- */
+
+/* Estilo do Quiz (versão original) */
 .perguntas {
-    background-color: #ffffff;
-    padding: 25px;
-    border-radius: 12px;
-    margin: 30px 0;
-    border: 1px solid #e0e0e0;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-}
-
-.quiz-question {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #333;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.quiz-options {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.quiz-option {
-    padding: 15px;
-    border: 1px solid #ccc;
+    background-color: #e9f5ff;
+    padding: 20px;
     border-radius: 8px;
+    margin: 20px 0;
+}
+
+.perguntas ol {
+    padding-left: 25px;
+    margin-bottom: 15px;
+}
+
+.perguntas button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1rem;
+    border-radius: 5px;
     cursor: pointer;
-    text-align: center;
-    transition: all 0.2s ease-in-out;
-}
-
-.quiz-option:hover {
-    background-color: #f0f4f8;
-    border-color: #007BFF;
-}
-
-/* Classes para feedback de resposta */
-.quiz-option.correct {
-    background-color: #d4edda;
-    border-color: #c3e6cb;
-    color: #155724;
-    font-weight: bold;
-}
-
-.quiz-option.incorrect {
-    background-color: #f8d7da;
-    border-color: #f5c6cb;
-    color: #721c24;
-    font-weight: bold;
 }
 
 .resposta {
-    margin-top: 15px;
+    margin-top: 10px;
     font-weight: bold;
-    text-align: center;
-    font-size: 1.1rem;
 }
 
-/* Outros Estilos */
-.centered-image {
-    text-align: center;
-    margin: 20px 0;
-}
-.centered-image img {
-    max-width: 70%;
-    border-radius: 8px;
-}
-.caption {
-    font-style: italic;
-    color: #777;
-    margin-top: 5px;
-    font-size: 0.9rem;
+.resposta.correto {
+    color: green;
 }
 
+.resposta.incorreto {
+    color: red;
+}
+
+/* Estilo do Jogo */
 #game-container {
     text-align: center;
+    padding: 20px;
+    margin-top: 20px;
 }
