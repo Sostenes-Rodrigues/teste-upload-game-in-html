@@ -28,4 +28,86 @@
         
         <section id="exemplos">
             <h2>Tipos de Reflexão</h2>
-            <p>Existem dois tipos principais de reflexão, que dependem da superfície onde a luz bate.</p
+            <p>Existem dois tipos principais de reflexão, que dependem da superfície onde a luz bate.</p>
+            <div class="examples-grid">
+                <div class="example-item">
+                    <img src="https://i.imgur.com/hGGrA4A.jpg" alt="Imagem nítida refletida em um espelho">
+                    <h3>Reflexão Espelular (ou Regular)</h3>
+                    <p>Ocorre em superfícies muito lisas, como um espelho ou a superfície de água parada. Os raios de luz são refletidos de forma organizada, na mesma direção, o que nos permite ver uma imagem nítida.</p>
+                </div>
+                <div class="example-item">
+                    <img src="https://i.imgur.com/2PzQk1J.jpg" alt="Parede de tijolos vermelhos sem reflexo nítido">
+                    <h3>Reflexão Difusa</h3>
+                    <p>Ocorre em superfícies irregulares ou foscas, como uma parede, madeira ou asfalto. Os raios de luz são refletidos em várias direções diferentes. Por isso, conseguimos ver o objeto, mas não uma imagem refletida nele.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="curiosidades">
+            <h2>Exemplos no Dia a Dia</h2>
+            <div class="examples-grid">
+                 <div class="example-item">
+                    <img src="https://i.imgur.com/g0tH5fG.jpg" alt="Diagrama de um periscópio de submarino usando espelhos">
+                    <h3>Periscópios</h3>
+                    <p>Utilizam dois espelhos planos e paralelos para desviar a luz em 90 graus duas vezes. Isso permite observar um local sem estar diretamente na linha de visão, como em um submarino.</p>
+                </div>
+                <div class="example-item">
+                    <img src="https://i.imgur.com/x0L5Y2w.jpg" alt="Letra F e seu reflexo invertido em um espelho">
+                    <h3>Inversão em Espelhos</h3>
+                    <p>Um espelho plano inverte as imagens no eixo da profundidade (frente para trás). Por isso, quando levantamos a mão direita, nosso reflexo parece levantar a mão esquerda.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="desafio-reflexao">
+            <h2>Teste Seus Conhecimentos</h2>
+            <p>Responda algumas perguntas para verificar o que você aprendeu.</p>
+            <div class="pergunta-item">
+                <p>1. A imagem nítida que vemos em um lago calmo é um exemplo de qual tipo de reflexão?</p>
+                <div class="opcoes"><label><input type="radio" name="q1" value="a"> Difusa</label><label><input type="radio" name="q1" value="b"> Espelular</label><label><input type="radio" name="q1" value="c"> Refrativa</label></div>
+            </div>
+            <div class="pergunta-item">
+                <p>2. Por que conseguimos ver uma folha de papel, que não é brilhante?</p>
+                <div class="opcoes"><label><input type="radio" name="q2" value="a"> Porque ela emite luz própria.</label><label><input type="radio" name="q2" value="b"> Por causa da reflexão difusa.</label><label><input type="radio" name="q2" value="c"> Por causa da absorção total da luz.</label></div>
+            </div>
+            <div class="pergunta-item">
+                <p>3. Um periscópio funciona com base em qual princípio?</p>
+                <div class="opcoes"><label><input type="radio" name="q3" value="a"> Refração da luz em lentes.</label><label><input type="radio" name="q3" value="b"> Absorção de cores.</label><label><input type="radio" name="q3" value="c"> Reflexão da luz em espelhos angulados.</label></div>
+            </div>
+            
+            <button onclick="verificarRespostas()">Verificar Respostas</button>
+            <div id="resultado-quiz" style="display: none;"></div>
+        </section>
+    </main>
+
+    <section id="jogo">
+        <div class="container-jogo">
+            <h2>Jogo Interativo</h2>
+            <p>Use o que você aprendeu para completar o desafio no jogo abaixo.</p>
+            
+            <p class="mobile-scroll-hint">➡️ Arraste para os lados para ver o jogo todo ➡️</p>
+
+            <div id="game-container">
+                <div class="gm4html5_div_class" id="gm4html5_div_id">
+                    <canvas id="canvas" width="1536" height="864">
+                        <p>Seu navegador não suporta HTML5 canvas.</p>
+                    </canvas>
+                    <button id="startBtn" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 12px 24px; font-size: 18px; cursor: pointer; background: #fff; border: 1px solid #ccc; color: #333; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">Jogar</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Projeto de Ciências - 2025</p>
+    </footer>
+
+    <script>
+        function verificarRespostas(){const e={q1:"b",q2:"b",q3:"c"};let t=0;const o=Object.keys(e).length;for(let a=1;a<=o;a++){const s="q"+a,l=document.querySelector(`input[name="${s}"]:checked`);l&&l.value===e[s]&&t++}const c=document.getElementById("resultado-quiz");c.style.display="block",t===o?(c.innerHTML='<p style="color: green; font-weight: bold;">Parabéns, você acertou tudo!</p>',c.className="correto"):(c.innerHTML=`<p style="color: red; font-weight: bold;">Você acertou ${t} de ${o}. Tente novamente!</p>`,c.className="incorreto")}
+    </script>
+    <script>
+        let gameInitFunction=null;const btn=document.getElementById("startBtn"),script=document.createElement("script");script.src="html5game/game reflection.js?cachebust="+Date.now(),script.onload=()=>{setTimeout(()=>{typeof GameMaker_Init=="function"?(gameInitFunction=GameMaker_Init,btn.style.display="block"):console.error("GameMaker_Init não disponível após o carregamento.")},200)},document.body.appendChild(script),btn.addEventListener("click",()=>{gameInitFunction?(gameInitFunction(),btn.style.display="none"):alert("O jogo ainda não está pronto. Tente novamente.")});
+    </script>
+
+</body>
+</html>
