@@ -1,101 +1,75 @@
-/* --- CONFIGURAÇÕES GLOBAIS E NOVA FONTE --- */
+/* --- CONFIGURAÇÕES GERAIS --- */
 :root {
-    --cor-primaria: #0ea5e9; /* Azul Céu (Sky Blue) */
-    --cor-fundo: #f8fafc;    /* Cinza extra claro (Slate) */
-    --cor-texto: #475569;    /* Cinza escuro para textos */
-    --cor-heading: #1e293b;  /* Cinza mais escuro para títulos */
+    --cor-primaria: #007bff;
+    --cor-fundo: #f8fafc;
+    --cor-texto: #475569;
+    --cor-heading: #1e293b;
     --cor-branca: #ffffff;
-    --cor-borda: #e2e8f0;    /* Cinza claro para bordas */
+    --cor-borda: #e2e8f0;
 }
-
 *, *::before, *::after { box-sizing: border-box; }
-
 body {
-    font-family: 'Inter', sans-serif; /* Nova fonte para todo o corpo */
+    font-family: Arial, Helvetica, sans-serif; /* Voltando para fontes padrão */
     line-height: 1.7;
     margin: 0;
     color: var(--cor-texto);
     background-color: var(--cor-fundo);
-    -webkit-font-smoothing: antialiased; /* Deixa a fonte mais nítida */
 }
 
-/* --- CABEÇALHO REFINADO --- */
+/* --- CABEÇALHO --- */
 header {
-    padding: 4rem 1rem;
+    padding: 3rem 1rem;
     color: var(--cor-branca);
     text-align: center;
-    background-color: #0284c7;
-    background-image: linear-gradient(45deg, #0ea5e9, #0284c7);
+    background-color: var(--cor-primaria);
 }
-header h1 { 
-    font-family: 'Inter', sans-serif;
-    font-weight: 700; /* Mais peso para o título */
-    font-size: 3rem; 
-    margin: 0;
-    letter-spacing: -1px; /* Espaçamento entre letras mais justo */
-}
-header p { 
-    font-size: 1.25rem; 
-    max-width: 600px; 
-    margin: 1rem auto 0; 
-    opacity: 0.9;
-}
+header h1 { font-size: 2.5rem; margin: 0; }
+header p { font-size: 1.1rem; max-width: 600px; margin: 1rem auto 0; }
 
 /* --- ESTRUTURA E TÍTULOS --- */
-.container { max-width: 1024px; margin: 0 auto; padding: 2rem; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
 section { margin-bottom: 4rem; }
-
 h2 {
-    font-family: 'Inter', sans-serif;
-    font-weight: 700;
-    font-size: 2.5rem;
+    font-size: 2.25rem;
     color: var(--cor-heading);
     text-align: center;
     margin-bottom: 1rem;
-    border-bottom: none; /* Remove a borda antiga */
-    padding-bottom: 0;
+    border-bottom: 2px solid var(--cor-borda);
+    padding-bottom: 1rem;
 }
-.subtitle { /* Classe para os parágrafos de subtítulo */
+.subtitle {
     text-align: center;
     font-size: 1.1rem;
-    color: var(--cor-secundaria);
+    color: #64748b;
     margin-top: 0;
     margin-bottom: 3rem;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
 }
+h3 { font-size: 1.25rem; margin: 0 0 0.5rem 0; color: var(--cor-heading); }
 
-h3 { 
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
-    font-size: 1.25rem; 
-    margin: 1rem 0 0.5rem 0; 
-    color: var(--cor-heading); 
-}
-
-/* --- NOVOS CARDS DE EXEMPLO --- */
+/* --- CARDS DE EXEMPLO --- */
 .examples-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
 .example-item {
     background: var(--cor-branca);
-    border-radius: 12px; /* Bordas mais arredondadas */
+    border-radius: 12px;
     border: 1px solid var(--cor-borda);
     padding: 1.5rem;
     transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
-.example-item:hover { 
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(100, 116, 139, 0.1);
-}
-.example-item img { 
-    width: 100%; 
-    height: 220px; /* Altura fixa para alinhar os cards */
-    object-fit: cover; /* Preenche o espaço sem distorcer */
-    border-radius: 8px; 
+.example-item:hover { transform: translateY(-5px); box-shadow: 0 7px 25px rgba(100, 116, 139, 0.1); }
+
+/* IMAGENS COM TAMANHO ORIGINAL */
+.example-item img {
+    width: 100%;
+    /* Removida a altura fixa e o object-fit para que as imagens tenham seu tamanho natural */
+    border-radius: 8px;
     margin-bottom: 1rem;
+    display: block;
 }
 
-/* --- NOVO DESIGN DO QUIZ --- */
+/* --- DESIGN DO QUIZ CORRIGIDO --- */
 #desafio-reflexao { padding: 0; border: none; }
 .quiz-container { display: flex; flex-direction: column; gap: 1.5rem; }
 .pergunta-item {
@@ -105,7 +79,7 @@ h3 {
     padding: 2rem;
 }
 .pergunta-texto {
-    font-weight: 600;
+    font-weight: bold;
     font-size: 1.1rem;
     color: var(--cor-heading);
     margin: 0 0 1.5rem 0;
@@ -121,7 +95,16 @@ h3 {
     transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 .opcoes label:hover { background-color: var(--cor-fundo); }
-.opcoes input[type="radio"] { display: none; }
+
+/* CORREÇÃO PARA O QUIZ FUNCIONAR */
+.opcoes input[type="radio"] {
+    /* Em vez de 'display: none', usamos essa técnica para esconder visualmente
+       mas manter o elemento funcional para o clique no label */
+    opacity: 0;
+    position: fixed;
+    width: 0;
+}
+
 .opcoes label::before {
     content: '';
     width: 18px;
@@ -139,9 +122,10 @@ h3 {
 }
 .opcoes input[type="radio"]:checked + label {
     border-color: var(--cor-primaria);
-    background-color: #f0f9ff;
-    font-weight: 500;
+    background-color: #e9f2ff;
+    font-weight: bold;
 }
+
 #desafio-reflexao button {
     display: block;
     margin: 2.5rem auto 0;
@@ -150,27 +134,22 @@ h3 {
     border: none;
     padding: 0.8rem 2.5rem;
     font-size: 1.1rem;
-    font-weight: 600;
+    font-weight: bold;
     border-radius: 50px;
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 #desafio-reflexao button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 7px 20px rgba(14, 165, 233, 0.3);
+    box-shadow: 0 7px 20px rgba(0, 123, 255, 0.2);
 }
-#resultado-quiz {
-    text-align: center;
-    margin-top: 1.5rem;
-    padding: 1rem;
-    border-radius: 8px;
-    font-size: 1.1rem;
-}
-#resultado-quiz.correto { background-color: #dcfce7; border: 1px solid #bbf7d0; }
-#resultado-quiz.incorreto { background-color: #fee2e2; border: 1px solid #fecaca; }
+
+#resultado-quiz { text-align: center; margin-top: 1.5rem; padding: 1rem; border-radius: 8px; font-size: 1.1rem; }
+#resultado-quiz.correto { background-color: #d4edda; border: 1px solid #c3e6cb; }
+#resultado-quiz.incorreto { background-color: #f8d7da; border: 1px solid #f5c6cb; }
 
 /* --- SEÇÃO DO JOGO --- */
-#jogo { background-color: #eef2f7; padding: 4rem 1rem; border-top: 1px solid var(--cor-borda); }
+#jogo { background-color: #e9ecef; padding: 4rem 1rem; border-top: 1px solid var(--cor-borda); }
 .container-jogo { max-width: 1600px; margin: 0 auto; text-align: center; }
 .mobile-scroll-hint { display: none; }
 #game-container {
@@ -189,7 +168,7 @@ footer { text-align: center; padding: 2.5rem; margin-top: 1rem; background-color
 
 /* --- DESIGN RESPONSIVO --- */
 @media (max-width: 768px) {
-    header h1 { font-size: 2rem; letter-spacing: normal; }
+    header h1 { font-size: 2rem; }
     h2 { font-size: 1.75rem; }
     .examples-grid { grid-template-columns: 1fr; }
     .mobile-scroll-hint { display: block; font-weight: bold; margin-bottom: 1rem; }
