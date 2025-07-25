@@ -2,7 +2,7 @@
 :root {
     --cor-primaria: #007bff;
     --cor-secundaria: #6c757d;
-    --cor-sucesso: #28a745; /* Nova cor verde para feedback */
+    --cor-sucesso: #28a745; /* Cor verde para feedback */
     --cor-fundo: #f8f9fa;
     --cor-texto: #343a40;
     --cor-branca: #ffffff;
@@ -43,9 +43,9 @@ h3 { font-size: 1.25rem; margin-top: 0; color: var(--cor-texto); }
 /* Estilo para a imagem da Lei da Reflexão */
 .img-lei {
     display: block;
-    max-width: 500px; /* Limita o tamanho máximo da imagem */
-    width: 100%; /* Garante que ela seja responsiva */
-    margin: 1.5rem auto; /* Centraliza a imagem */
+    max-width: 500px;
+    width: 100%;
+    margin: 1.5rem auto;
     border-radius: 8px;
     background-color: var(--cor-branca);
     padding: 1rem;
@@ -87,30 +87,55 @@ h3 { font-size: 1.25rem; margin-top: 0; color: var(--cor-texto); }
     font-weight: bold; font-size: 1.1rem; color: var(--cor-texto); margin: 0 0 1rem 0;
 }
 .opcoes { display: flex; flex-direction: column; gap: 0.75rem; }
+
+/* === MUDANÇAS NO QUIZ PARA GARANTIR FUNCIONAMENTO === */
+.opcoes div {
+    display: flex;
+    align-items: center;
+}
 .opcoes label {
-    display: flex; align-items: center; cursor: pointer; padding: 0.75rem; border-radius: 6px; border: 1px solid var(--cor-borda); transition: background-color 0.2s ease, border-color 0.2s ease;
+    display: block;
+    cursor: pointer;
+    padding: 0.75rem;
+    border-radius: 6px;
+    border: 1px solid var(--cor-borda);
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    width: 100%;
 }
 .opcoes label:hover { background-color: #f8f9fa; }
-.opcoes input[type="radio"] { opacity: 0; position: fixed; width: 0; }
 
-.opcoes label::before {
-    content: ''; display: inline-block; width: 20px; height: 20px; margin-right: 12px; border-radius: 50%; border: 2px solid var(--cor-borda); background-color: var(--cor-branca); transition: border-color 0.2s ease, background-color 0.2s ease;
+/* Esconde o input original de forma acessível */
+.opcoes input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
 }
 
-/* --- MUDANÇA NA COR DO QUIZ --- */
-/* Estilo quando o botão de rádio está selecionado */
+/* Bolinha customizada antes do label */
+.opcoes label::before {
+    content: ''; 
+    display: inline-block; 
+    width: 20px; 
+    height: 20px; 
+    margin-right: 12px; 
+    border-radius: 50%; 
+    border: 2px solid var(--cor-borda); 
+    background-color: var(--cor-branca); 
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+    flex-shrink: 0; /* Impede que a bolinha encolha */
+}
+
+/* Estilo da bolinha e do label QUANDO o input está MARCADO */
 .opcoes input[type="radio"]:checked + label::before {
-    border-color: var(--cor-sucesso); /* Borda verde */
-    background-color: var(--cor-sucesso); /* Fundo verde */
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="white"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>');
-    background-position: center;
-    background-repeat: no-repeat;
+    border-color: var(--cor-sucesso);
+    background-color: var(--cor-sucesso);
+    box-shadow: inset 0 0 0 3px var(--cor-branca); /* Cria o efeito de bolinha interna */
 }
 .opcoes input[type="radio"]:checked + label {
-    border-color: var(--cor-sucesso); /* Borda da caixa verde */
-    background-color: #eafaf1; /* Fundo da caixa verde claro */
+    border-color: var(--cor-sucesso);
+    background-color: #eafaf1;
 }
-
 
 #desafio-reflexao button {
     display: block; margin: 2rem auto 0; background-color: var(--cor-primaria); color: var(--cor-branca); border: none; padding: 0.8rem 2.5rem; font-size: 1.1rem; font-weight: bold; border-radius: 50px; cursor: pointer; transition: transform 0.2s ease, box-shadow 0.2s ease;
