@@ -52,21 +52,30 @@ h3 { font-size: 1.25rem; margin-top: 0; color: var(--cor-texto); }
     transform: translateY(-5px);
     box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
 }
-.example-item img { width: 100%; border-radius: 4px; margin-bottom: 1rem; aspect-ratio: 16/9; object-fit: cover;}
 
 /* ================================================================
-   NOVO DESIGN DO QUIZ
+   AJUSTE PARA DEIXAR IMAGENS COM A MESMA ALTURA
 ================================================================
 */
+.example-item img { 
+    width: 100%;
+    height: 200px; /* Define uma altura fixa para todas as imagens */
+    object-fit: cover; /* Faz a imagem cobrir o espaço sem distorcer */
+    border-radius: 4px; 
+    margin-bottom: 1rem;
+    background-color: #eee; /* Cor de fundo caso a imagem demore a carregar */
+}
+/* ================================================================ */
+
+
+/* --- SEÇÃO DO QUIZ --- */
 #desafio-reflexao {
-    background-color: transparent; /* Remove o fundo branco anterior */
+    background-color: transparent;
     padding: 0;
     border: none;
     box-shadow: none;
 }
-#desafio-reflexao h2 {
-    margin-bottom: 1rem;
-}
+#desafio-reflexao h2 { margin-bottom: 1rem; }
 #desafio-reflexao > p {
     text-align: center;
     font-size: 1.1rem;
@@ -74,12 +83,7 @@ h3 { font-size: 1.25rem; margin-top: 0; color: var(--cor-texto); }
     margin-bottom: 2rem;
 }
 
-.quiz-container {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem; /* Espaço entre as perguntas */
-}
-
+.quiz-container { display: flex; flex-direction: column; gap: 1.5rem; }
 .pergunta-item {
     background-color: var(--cor-branca);
     border: 1px solid var(--cor-borda);
@@ -87,7 +91,6 @@ h3 { font-size: 1.25rem; margin-top: 0; color: var(--cor-texto); }
     padding: 1.5rem;
     margin: 0;
 }
-
 .pergunta-texto {
     font-weight: bold;
     font-size: 1.1rem;
@@ -95,12 +98,7 @@ h3 { font-size: 1.25rem; margin-top: 0; color: var(--cor-texto); }
     margin: 0 0 1rem 0;
 }
 
-.opcoes {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem; /* Espaço entre as opções */
-}
-
+.opcoes { display: flex; flex-direction: column; gap: 0.75rem; }
 .opcoes label {
     display: flex;
     align-items: center;
@@ -110,17 +108,8 @@ h3 { font-size: 1.25rem; margin-top: 0; color: var(--cor-texto); }
     border: 1px solid var(--cor-borda);
     transition: background-color 0.2s ease, border-color 0.2s ease;
 }
-
-.opcoes label:hover {
-    background-color: #f8f9fa;
-}
-
-/* Esconde o botão de rádio original */
-.opcoes input[type="radio"] {
-    display: none;
-}
-
-/* Estilo customizado para o botão de rádio */
+.opcoes label:hover { background-color: #f8f9fa; }
+.opcoes input[type="radio"] { display: none; }
 .opcoes label::before {
     content: '';
     display: inline-block;
@@ -132,8 +121,6 @@ h3 { font-size: 1.25rem; margin-top: 0; color: var(--cor-texto); }
     background-color: var(--cor-branca);
     transition: border-color 0.2s ease;
 }
-
-/* Estilo quando o botão de rádio está selecionado */
 .opcoes input[type="radio"]:checked + label::before {
     border-color: var(--cor-primaria);
     background-color: var(--cor-primaria);
@@ -141,7 +128,6 @@ h3 { font-size: 1.25rem; margin-top: 0; color: var(--cor-texto); }
     background-position: center;
     background-repeat: no-repeat;
 }
-
 .opcoes input[type="radio"]:checked + label {
     border-color: var(--cor-primaria);
     background-color: #e9f2ff;
@@ -156,11 +142,10 @@ h3 { font-size: 1.25rem; margin-top: 0; color: var(--cor-texto); }
     padding: 0.8rem 2.5rem;
     font-size: 1.1rem;
     font-weight: bold;
-    border-radius: 50px; /* Botão arredondado */
+    border-radius: 50px;
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-
 #desafio-reflexao button:hover {
     transform: scale(1.05);
     box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
